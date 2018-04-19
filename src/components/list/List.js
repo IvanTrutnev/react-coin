@@ -86,11 +86,11 @@ class List extends React.Component {
           renderChangePercent={this.renderChangePercent}
          />
 
-         <Pagination
+        <Pagination
            page={page}
            totalPages={totalPages}
            handlePaginationClick={this.handlePaginationClick}
-         />
+        />
       </div>
     )
   }
