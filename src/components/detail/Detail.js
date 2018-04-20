@@ -22,6 +22,17 @@ class Detail extends React.Component {
   componentDidMount() {
     const currencyId = this.props.match.params.id;
 
+    this.fetchCurrency(currencyId)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(this.props.location.pathname !== nextProps.location.pathname) {
+      const newCurrencyId = nextProps.match.params.id;
+      this.fetchCurrency(newCurrencyId)
+    }
+  }
+
+  fetchCurrency (currencyId) {
     this.setState({
       loading: true
     })
@@ -64,7 +75,7 @@ class Detail extends React.Component {
             Price <span className="Detail-value">$ {currency.price}</span>
           </div>
           <div className="Detail-item">
-            Price <span className="Detail-value">{currency.rank}</span>
+            Rank <span className="Detail-value">{currency.rank}</span>
           </div>
           <div className="Detail-item">
             24H Change
